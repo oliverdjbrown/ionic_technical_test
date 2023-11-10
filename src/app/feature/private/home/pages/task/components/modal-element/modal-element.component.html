@@ -1,0 +1,19 @@
+<ion-modal>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancel</ion-button>
+        </ion-buttons>
+        <ion-title>Task {{task.id}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <label>
+        <h1>{{task.title}}</h1>
+      </label>
+      <ion-label>{{task.due_on | date: 'mediumDate'}}</ion-label>
+      <ion-badge [color]="task.status === TaskStatus.Completed ? 'success': 'warning'">{{task.status}}</ion-badge>
+    </ion-content>
+  </ng-template>
+</ion-modal>

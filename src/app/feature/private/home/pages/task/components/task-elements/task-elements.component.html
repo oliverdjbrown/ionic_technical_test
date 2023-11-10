@@ -1,0 +1,12 @@
+<ion-list>
+  <ion-item *ngFor="let item of tasks" (click)="setModalData(item)">
+    <ion-icon slot="start" [class]="item.status === TaskStatus.Completed ? 'completed' : 'pending'"
+      [name]="item.status === TaskStatus.Completed ? 'checkmark-circle-outline' : 'alert-circle-outline'"></ion-icon>
+    <ion-label>
+      <h2>Task: {{item.id}}</h2>
+      <p>{{item.title | slice: 0:50}} <span *ngIf="item.title.length > 50">{{'...'}}</span></p>
+    </ion-label>
+  </ion-item>
+</ion-list>
+
+<modal-element [task]="task" />
